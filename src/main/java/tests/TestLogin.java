@@ -1,8 +1,11 @@
 package tests;
 
+import org.junit.jupiter.api.Test;
 import pages.MainPage;
 
-public class TestLogin {
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TestLogin extends BaseTest{
 
     @Test
     public void testLogin() {

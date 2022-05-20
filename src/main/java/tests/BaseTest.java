@@ -1,5 +1,9 @@
 package tests;
 
+import org.junit.jupiter.api.BeforeAll;
+import pages.LoginPage;
+import utils.User;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
