@@ -63,6 +63,21 @@
             <version>5.8.2</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.atlas/atlas-appium -->
+        <dependency>
+            <groupId>io.qameta.atlas</groupId>
+            <artifactId>atlas-appium</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.atlas/atlas-webdriver -->
+        <dependency>
+            <groupId>io.qameta.atlas</groupId>
+            <artifactId>atlas-webdriver</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
