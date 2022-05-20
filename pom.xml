@@ -78,6 +78,13 @@
             <version>1.8.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.qameta.atlas/atlas-core -->
+        <dependency>
+            <groupId>io.qameta.atlas</groupId>
+            <artifactId>atlas-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
