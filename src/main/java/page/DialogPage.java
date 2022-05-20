@@ -1,4 +1,4 @@
-package pages;
+package page;
 
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
