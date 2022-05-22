@@ -7,11 +7,12 @@ public interface OKSite extends WebSite {
 
     @Page
     MainPage onMainPage();
-
     @Page
     LoginPage onLoginPage();
-
     @Page
     DialogPage onDialogPage();
-
+    @Page
+    ProfilePage onProfilePage();
+    @Page
+    AvatarPage onAvatarPage();
 }
