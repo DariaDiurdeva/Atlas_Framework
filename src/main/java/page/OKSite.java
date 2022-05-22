@@ -2,8 +2,6 @@ package page;
 
 import io.qameta.atlas.webdriver.WebSite;
 import io.qameta.atlas.webdriver.extension.Page;
-import page.LoginPage;
-import page.MainPage;
 
 public interface OKSite extends WebSite {
 
@@ -12,5 +10,8 @@ public interface OKSite extends WebSite {
 
     @Page
     LoginPage onLoginPage();
+
+    @Page
+    DialogPage onDialogPage();
 
 }

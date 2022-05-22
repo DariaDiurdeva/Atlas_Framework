@@ -1,31 +1,32 @@
-/*
-package tests;
+package test;
 
 import org.junit.jupiter.api.Test;
-import pages.DialogPage;
-import utils.Utils;
-
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
+import util.User;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestMessage extends BaseTest{
 
     @Test
-    public void messageTest() {
+    public void testMessage() {
+        String text = "How are you?";
+        User user1 = new User.UserBuilder().setFullName("Дарья Дюрдева")
+                .setLogin("89119877204").setPassword("autotest1")
+                .setId("589088855467").build();
+        User user2 = new User.UserBuilder().setFullName("Lol Kek")
+                .setLogin("89657631124").setPassword("polinasuperstar")
+                .setId("589260828331").build();
+        driver.get("https://ok.ru");
+        onSite().onLoginPage().login(user1);
+        onSite().onMainPage().openMessages();
+        onSite().onDialogPage().openDialog(user2.getId());
+        onSite().onDialogPage().sendMessage(text);
 
-        DialogPage dialogPage = new DialogPage();
+        onSite().onMainPage().exit();
 
-        open("https://ok.ru/messages/" + user2.getId());
-        String message = Utils.generateLine();
-        dialogPage.sendMessage(message);
-        closeWebDriver();
+        onSite().onLoginPage().login(user2);
+        onSite().onMainPage().openMessages();
+        onSite().onDialogPage().openDialog(user1.getId());
 
-        open("https://ok.ru");
-        loginPage.login(user2.getLogin(), user2.getPassword());
-        open("https://ok.ru/messages/" + user1.getId());
-        assertEquals(message, dialogPage.getLastMessage());
-        closeWebDriver();
+        assertEquals(onSite().onDialogPage().lastMessage().text().getText(),text);
     }
 }
-*/
