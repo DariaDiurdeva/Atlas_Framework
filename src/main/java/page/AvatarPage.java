@@ -1,11 +1,11 @@
-package element;
+package page;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Avatar {
+public class AvatarPage {
     By xPathLike = By.xpath("(//ul[@data-l='t,actions']/li[@class='widget-list_i'])[last()]");
     By xPathActiveLike = By.xpath("(//ul[@data-l='t,actions']/li[@class='widget-list_i'])[last()]//div[contains(@class, '__active')]");
 //    By nameComment = By.name("st.dM");

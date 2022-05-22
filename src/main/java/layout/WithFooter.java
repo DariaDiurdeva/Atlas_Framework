@@ -2,6 +2,6 @@ package layout;
 
 import element.Footer;
 
-public interface WithLikeFooter extends Footer {
+public interface WithFooter {
     Footer withFooter();
 }

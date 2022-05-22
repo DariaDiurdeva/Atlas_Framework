@@ -1,4 +1,4 @@
-package element;
+package util;
 
 import io.qameta.atlas.core.api.MethodExtension;
 import io.qameta.atlas.core.internal.Configuration;

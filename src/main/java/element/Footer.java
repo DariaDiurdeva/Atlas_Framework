@@ -1,2 +1,3 @@
-package element;public class Footer {
+package element;
+public class Footer {
 }
