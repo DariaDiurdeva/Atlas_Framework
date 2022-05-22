@@ -6,7 +6,7 @@ import io.qameta.atlas.webdriver.extension.Param;
 
 public interface Button extends AtlasWebElement {
 
-    @FindBy("//input[@data-l = '{{ value }}']")
+    @FindBy(".//*[@data-l = '{{ value }}']")
     AtlasWebElement selectButton(@Param("value") String value);
 
 }
