@@ -1,26 +1,32 @@
 package page;
 
-import com.codeborne.selenide.Condition;
+import io.qameta.atlas.webdriver.WebPage;
+import layout.WithFooter;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
-public class AvatarPage {
-    By xPathLike = By.xpath("(//ul[@data-l='t,actions']/li[@class='widget-list_i'])[last()]");
-    By xPathActiveLike = By.xpath("(//ul[@data-l='t,actions']/li[@class='widget-list_i'])[last()]//div[contains(@class, '__active')]");
+public interface AvatarPage extends WebPage, WithFooter {
 //    By nameComment = By.name("st.dM");
 //    By xPathAddComment = By.xpath("//button[@data-l='t,submit']");
 //    By xPathLastComment = By.xpath("(//div[@class='comments_text textWrap'])[last()]");
 //    By xPathControlComments = By.xpath("//div[@class='comments_controls-t']");
 
-    public void clickLike() {
-        $(xPathLike).click();
+    default void clickLike() {
+        footer().likeType("t,.l").should(displayed()).click();
+        footer().likeType("t,unlike").waitUntil(displayed());
     }
 
-    public boolean isLike() {
-        $(xPathLike).shouldBe(Condition.visible);
-        return $(xPathActiveLike).exists();
+    default void clickUnLike() {
+        footer().likeType("t,unlike").should(displayed()).click();
+        footer().likeType("t,.l").waitUntil(displayed());
     }
+
+    default boolean isLike() {
+           return(footer().likeButton().getAttribute("class").contains("active"));
+    }
+
 
 //    public void writeComment(String comment) {
 //        $(nameComment).setValue(comment);
