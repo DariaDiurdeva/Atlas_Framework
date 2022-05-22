@@ -8,4 +8,5 @@ public interface Button extends AtlasWebElement {
 
     @FindBy("//input[@data-l = '{{ value }}']")
     AtlasWebElement selectButton(@Param("value") String value);
+
 }

@@ -1,26 +1,29 @@
 package page;
 
-import lombok.NoArgsConstructor;
-import org.openqa.selenium.By;
+import io.qameta.atlas.webdriver.AtlasWebElement;
+import io.qameta.atlas.webdriver.WebPage;
+import io.qameta.atlas.webdriver.extension.FindBy;
+import io.qameta.atlas.webdriver.extension.Param;
+import layout.WithHeader;
+import layout.WithMessage;
 
-import static com.codeborne.selenide.Selenide.$;
+public interface DialogPage extends WebPage, WithMessage, WithHeader {
 
-@NoArgsConstructor
-public class DialogPage {
-    By xPathMessage = By.xpath("//msg-input");
-    By xPathButton = By.xpath("//msg-button[@data-tsid='button_send']");
-    By xPathLastMessage = By.xpath("(//msg-message[not(@mine)]//div/msg-parsed-text)[last()]");
+    @FindBy("//msg-input")
+    AtlasWebElement lineInputMessage();
 
-    public void sendMessage(String message) {
-        $(xPathMessage).setValue(message);
-        $(xPathButton).click();
+    @FindBy("//msg-button[@data-tsid='button_send']")
+    AtlasWebElement sendButton();
+
+    @FindBy("//msg-chats-list-item//*[@id= '{{ value }}']")
+    AtlasWebElement dialog(@Param("value") String value);
+
+    default void sendMessage(String text){
+        lineInputMessage().sendKeys("Hello");
+        sendButton().click();
     }
+     default void openDialog(String id){
+        dialog(id).click();
+     }
 
-    public String getLastMessage() {
-        return $(xPathLastMessage).getText();
-    }
-
-//    public boolean isLoadCheck() {
-//        return $(By.className("content chat-messages")).exists();
-//    }
 }
