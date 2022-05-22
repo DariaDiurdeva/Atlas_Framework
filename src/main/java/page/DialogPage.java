@@ -19,11 +19,11 @@ public interface DialogPage extends WebPage, WithMessage, WithHeader {
     AtlasWebElement dialog(@Param("value") String value);
 
     default void sendMessage(String text){
-        lineInputMessage().sendKeys("Hello");
+        lineInputMessage().sendKeys(text);
         sendButton().click();
     }
+
      default void openDialog(String id){
         dialog(id).click();
      }
-
 }
