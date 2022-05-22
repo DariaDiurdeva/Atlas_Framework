@@ -1,3 +1,4 @@
+/*
 package element;
 
 import com.codeborne.selenide.Condition;
@@ -36,3 +37,4 @@ public class Avatar {
 //        $(xPathAddComment).click();
 //    }
 }
+*/

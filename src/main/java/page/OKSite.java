@@ -14,4 +14,6 @@ public interface OKSite extends WebSite {
     @Page
     DialogPage onDialogPage();
 
+    @Page
+    CreateNotePage onCreateNotesPage();
 }

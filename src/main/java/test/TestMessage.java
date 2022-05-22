@@ -27,6 +27,7 @@ public class TestMessage extends BaseTest{
         onSite().onMainPage().openMessages();
         onSite().onDialogPage().openDialog(user1.getId());
 
-        assertEquals(onSite().onDialogPage().lastMessage().text().getText(),text);
+        String lastMessage = onSite().onDialogPage().lastMessage().text().getText();
+        assertEquals(lastMessage,text);
     }
 }
