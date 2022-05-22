@@ -16,6 +16,6 @@ public class TestLogin extends BaseTest{
                 .setPassword("autotest1")
                 .build();
         onSite().onLoginPage().login(user);
-        assertEquals(onSite().onMainPage().fullName().getText(),user.getFullName());
+        assertEquals(onSite().onMainPage().getFullName(),user.getFullName());
     }
 }

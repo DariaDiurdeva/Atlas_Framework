@@ -2,9 +2,6 @@ package page;
 
 import io.qameta.atlas.webdriver.WebPage;
 import layout.WithFooter;
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.$;
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public interface AvatarPage extends WebPage, WithFooter {

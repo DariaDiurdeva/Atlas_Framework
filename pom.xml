@@ -84,34 +84,37 @@
             <artifactId>atlas-core</artifactId>
             <version>1.8.0</version>
         </dependency>
+<<<<<<< HEAD
+        <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.matchers/webdriver-matchers -->
+        <dependency>
+            <groupId>ru.yandex.qatools.matchers</groupId>
+            <artifactId>webdriver-matchers</artifactId>
+            <version>1.4.1</version>
+=======
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.2</version>
+            <scope>compile</scope>
+>>>>>>> diurdeva
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.matchers/webdriver-matchers -->
         <dependency>
             <groupId>ru.yandex.qatools.matchers</groupId>
             <artifactId>webdriver-matchers</artifactId>
             <version>1.4.1</version>
         </dependency>
-
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <systemProperties>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
-                        </property>
-                    </systemProperties>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
             </plugin>
         </plugins>
     </build>
@@ -120,5 +123,4 @@
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
-
 </project>

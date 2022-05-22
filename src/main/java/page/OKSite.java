@@ -15,4 +15,6 @@ public interface OKSite extends WebSite {
     ProfilePage onProfilePage();
     @Page
     AvatarPage onAvatarPage();
+    @Page
+    CreateNotePage onCreateNotesPage();
 }
