@@ -3,7 +3,7 @@ package test;
 import org.junit.jupiter.api.Test;
 import util.User;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestSendNote  extends BaseTest{
 
@@ -25,5 +25,6 @@ public class TestSendNote  extends BaseTest{
 
         String lastNote = onSite().onMainPage().lastNote().textNote().getText();
         assertEquals( lastNote, checkText);
+
     }
 }

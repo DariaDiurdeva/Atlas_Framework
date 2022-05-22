@@ -7,6 +7,7 @@ import io.qameta.atlas.webdriver.WebPage;
 import io.qameta.atlas.webdriver.extension.FindBy;
 import io.qameta.atlas.webdriver.extension.Param;
 import util.User;
+import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public interface LoginPage extends WebPage, Button {
 
@@ -17,6 +18,6 @@ public interface LoginPage extends WebPage, Button {
     default void login(User user){
         selectField("st.email").sendKeys(user.getLogin());
         selectField("st.password").sendKeys(user.getPassword());
-        selectButton("t,sign_in").click();
+        selectButton("t,sign_in").should(displayed()).click();
     }
 }

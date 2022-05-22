@@ -4,6 +4,7 @@ import element.Button;
 import io.qameta.atlas.core.api.Retry;
 import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.extension.FindBy;
+import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public interface CreateNotePage extends AtlasWebElement, Button {
 
@@ -31,6 +32,7 @@ public interface CreateNotePage extends AtlasWebElement, Button {
             textField().sendKeys(text);
         }
 
-        selectButton("t,button.submit").click();
+
+        selectButton("t,button.submit").should(displayed()).click();
     }
 }
