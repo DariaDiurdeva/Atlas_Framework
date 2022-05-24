@@ -1,14 +1,14 @@
 package page;
 
+import element.Button;
+import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.WebPage;
+import io.qameta.atlas.webdriver.extension.FindBy;
+import layout.WithComment;
 import layout.WithFooter;
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
-public interface AvatarPage extends WebPage, WithFooter {
-//    By nameComment = By.name("st.dM");
-//    By xPathAddComment = By.xpath("//button[@data-l='t,submit']");
-//    By xPathLastComment = By.xpath("(//div[@class='comments_text textWrap'])[last()]");
-//    By xPathControlComments = By.xpath("//div[@class='comments_controls-t']");
+public interface AvatarPage extends WebPage, WithFooter, WithComment, Button {
 
     default void clickLike() {
         footer().likeType("t,.l").should(displayed()).click();
@@ -20,22 +20,19 @@ public interface AvatarPage extends WebPage, WithFooter {
         footer().likeType("t,.l").waitUntil(displayed());
     }
 
+    @FindBy("//button[@class = 'control__4rmea']")
+    AtlasWebElement closeImage();
+
     default boolean isLike() {
-           return(footer().likeButton().getAttribute("class").contains("active"));
+        return footer().likeButton().getAttribute("class").contains("active");
     }
 
+    default void writeComment(String comment) {
+        comments().commentField().sendKeys(comment);
+        selectButton("t,submit").click();
+    }
 
-//    public void writeComment(String comment) {
-//        $(nameComment).setValue(comment);
-//        $(xPathAddComment).click();
-//    }
-//
-//    public String getLastComment() {
-//        return $(xPathLastComment).getText();
-//    }
-//
-//    public void deleteLastComment() {
-//        $(xPathControlComments).shouldBe(Condition.visible);
-//        $(xPathAddComment).click();
-//    }
+    default String getLastComment() {
+        return comments().last().getText();
+    }
 }

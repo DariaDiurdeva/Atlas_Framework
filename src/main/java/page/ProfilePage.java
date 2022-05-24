@@ -1,5 +1,6 @@
 package page;
 
+import element.Button;
 import io.qameta.atlas.core.api.Retry;
 import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.WebPage;
@@ -8,7 +9,7 @@ import layout.WithHeader;
 
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
-public interface ProfilePage extends WebPage, WithHeader {
+public interface ProfilePage extends WebPage, WithHeader, Button {
     @FindBy("//div[@class='card_wrp']//a[contains(@href,'/profile')]")
     AtlasWebElement avatarHref();
 
@@ -17,7 +18,7 @@ public interface ProfilePage extends WebPage, WithHeader {
     AtlasWebElement xPathUniqueElem();
 
     default void openAvatar() {
-        avatarHref().click();
+        avatarHref().waitUntil(displayed()).click();
     }
 
     default boolean isLoadCheck() {

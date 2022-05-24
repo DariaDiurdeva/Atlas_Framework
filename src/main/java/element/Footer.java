@@ -14,5 +14,4 @@ public interface Footer extends AtlasWebElement {
 
     @FindBy("//span[text() = 'Комментарии']")
     AtlasWebElement comments();
-
 }

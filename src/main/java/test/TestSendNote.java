@@ -5,7 +5,7 @@ import util.User;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestSendNote  extends BaseTest{
+public class TestSendNote extends BaseTest {
 
 
     @Test
@@ -21,10 +21,10 @@ public class TestSendNote  extends BaseTest{
         String checkText = head + "\n" + text;
 
         onSite().onMainPage().openNotePage();
-        onSite().onCreateNotesPage().creatNote(head,text);
+        onSite().onCreateNotesPage().creatNote(head, text);
 
         String lastNote = onSite().onMainPage().lastNote().textNote().getText();
-        assertEquals( lastNote, checkText);
+        assertEquals(lastNote, checkText);
 
     }
 }

@@ -32,7 +32,6 @@ public interface CreateNotePage extends AtlasWebElement, Button {
             textField().sendKeys(text);
         }
 
-
         selectButton("t,button.submit").should(displayed()).click();
     }
 }

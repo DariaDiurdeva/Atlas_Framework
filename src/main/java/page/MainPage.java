@@ -11,19 +11,19 @@ import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public interface MainPage extends WebPage, WithHeader, Button, WithNote {
 
-    @Retry(timeout = 10_000L, polling = 1000L)
+    @Retry(timeout = 10_000L, polling = 2000L)
     @FindBy("//*[@id=\"hook_Block_Navigation\"]//*[@class = \"tico ellip\"]")
     AtlasWebElement fullName();
 
     @FindBy("//*[@class='form-actions __center']//*[@data-l='t,logout']")
-    AtlasWebElement confirmButton(); // не получилось через кнопку
+    AtlasWebElement confirmButton();
 
     default String getFullName(){
         return fullName().getText();
     }
 
     default void exit() {
-        header().miniToolbar().click();
+        header().miniToolbar().waitUntil(displayed()).click();
         header().selectButton("t,logout").should(displayed()).click();
         confirmButton().should(displayed()).click();
     }
@@ -34,5 +34,10 @@ public interface MainPage extends WebPage, WithHeader, Button, WithNote {
 
     default void openNotePage(){
         selectButton("t,feed.posting.ui.input").should(displayed()).click();
+    }
+
+    default void findHuman(String id) {
+        header().searchInput().sendKeys(id);
+        header().result().waitUntil(displayed()).click();
     }
 }

@@ -8,7 +8,6 @@ import io.qameta.atlas.core.internal.DefaultRetryer;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import io.qameta.atlas.webdriver.extension.ShouldMethodExtension;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,15 +23,15 @@ public class BaseTest {
     static void init() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\ChromeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
-       atlas = new Atlas(new WebDriverConfiguration(driver,"https://ok.ru")).
-               extension(new DefaultMethodExtension()).
-               extension(new ShouldMethodExtension()).
-               context(new RetryerContext(new DefaultRetryer(10000L, 1000L,
-                       Collections.singletonList(Throwable.class))));;
+        atlas = new Atlas(new WebDriverConfiguration(driver, "https://ok.ru")).
+                extension(new DefaultMethodExtension()).
+                extension(new ShouldMethodExtension()).
+                context(new RetryerContext(new DefaultRetryer(20000L, 1000L,
+                        Collections.singletonList(Throwable.class))));
     }
 
     @AfterAll
-    static void close(){
+    static void close() {
         driver.close();
     }
 

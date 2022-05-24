@@ -13,14 +13,8 @@ public class TestLike extends BaseTest {
     @Test
     public void likeTest() {
         driver.get("https://ok.ru");
-        User user1 = new User.UserBuilder()
-                .setLogin("89119877204")
-                .setPassword("autotest1")
-                .build();
-
-        onSite().onLoginPage().selectField("st.email").sendKeys(user1.getLogin());
-        onSite().onLoginPage().selectField("st.password").sendKeys(user1.getPassword());
-        onSite().onLoginPage().selectButton("t,sign_in").click();
+        User user1 = new User.UserBuilder().setLogin("89119877204").setPassword("autotest1").build();
+        onSite().onLoginPage().login(user1);
 
         User user2 = Utils.getRandomUserWithAvatar();
         onSite().onMainPage().header().searchInput().sendKeys(user2.getId());

@@ -5,7 +5,7 @@ import util.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestLogin extends BaseTest{
+public class TestLogin extends BaseTest {
 
     @Test
     public void testLogin() {
@@ -16,6 +16,6 @@ public class TestLogin extends BaseTest{
                 .setPassword("autotest1")
                 .build();
         onSite().onLoginPage().login(user);
-        assertEquals(onSite().onMainPage().getFullName(),user.getFullName());
+        assertEquals(onSite().onMainPage().getFullName(), user.getFullName());
     }
 }
