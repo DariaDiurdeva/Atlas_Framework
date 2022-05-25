@@ -6,7 +6,6 @@ import util.Utils;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public class TestLike extends BaseTest {
 
@@ -18,7 +17,7 @@ public class TestLike extends BaseTest {
 
         User user2 = Utils.getRandomUserWithAvatar();
         onSite().onMainPage().header().searchInput().sendKeys(user2.getId());
-        onSite().onMainPage().header().result().waitUntil(displayed()).click();
+        onSite().onMainPage().header().result().click();
 
         //ждем загрузки
         assertTrue(onSite().onProfilePage().isLoadCheck());
